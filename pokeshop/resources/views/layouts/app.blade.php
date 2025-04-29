@@ -4,13 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <title>@yield('title', 'Mi sitio')</title>
-    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="icon" type="image/png" href="{{ asset('imgs/logo.png') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
+    @stack('styles')
+    @stack('scripts')
 </head>
 <body>
+    @include('layouts.nav')
     <header>
         <h1>Pokeshop</h1>
     </header>

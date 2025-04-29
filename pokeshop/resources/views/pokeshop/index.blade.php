@@ -1,4 +1,4 @@
-<!-- resources/views/productos/index.blade.php -->
+<!-- resources/views/pokeshop/index.blade.php -->
 @extends('layouts.app')
 
 @section('title', 'Pokeshop')
