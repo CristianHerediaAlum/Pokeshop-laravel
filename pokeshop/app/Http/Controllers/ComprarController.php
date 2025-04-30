@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use App\Models\Carta;
 
 class ComprarController extends Controller
 {
@@ -13,8 +13,7 @@ class ComprarController extends Controller
         $idUsuario = $request->user()->id ?? 1;
 
         // Obtén las cartas en venta que no pertenecen al usuario
-        $cartas = DB::table('carta')
-            ->where('ID_Usuario', '!=', $idUsuario)
+        $cartas = Carta::where('ID_Usuario', '!=', $idUsuario)
             ->where('en_venta', 1)
             ->get();
 
