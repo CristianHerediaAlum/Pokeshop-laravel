@@ -78,7 +78,7 @@ h1 {
     color: white;
     border-color: white;
 }
-button {
+.boton_anadir {
     display: inline-block;
     width: fit-content; /* Que solo ocupe lo necesario */
     margin: 40px 30px; /* Centrarlo */
@@ -93,7 +93,7 @@ button {
     transition: background 0.3s ease, transform 0.2s ease;
 }
 
-button:hover {
+.boton_anadir:hover {
     background-color:rgb(144, 7, 18); /* Un rojo más oscuro */
     transform: scale(1.05); /* Efecto sutil de agrandado */
 }

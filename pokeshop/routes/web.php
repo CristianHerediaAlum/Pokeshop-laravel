@@ -12,4 +12,5 @@ Route::get('/', [function () {
 Route::get('/comprar', [ComprarController::class, 'index'])->name('comprar.index');
 Route::post('/comprar', [ComprarController::class, 'agregarAlCarrito'])->name('comprar.agregar');
 Route::get('/coleccion', [ColeccionController::class, 'index'])->name('coleccion.index');
-Route::post('/coleccion', [ColeccionController::class, 'añadir'])->name('coleccion.añadir');
+Route::get('/coleccion/crear', [ColeccionController::class, 'crear'])->name('coleccion.crear');
+Route::post('/coleccion/anadir', [ColeccionController::class, 'anadir'])->name('coleccion.anadir');

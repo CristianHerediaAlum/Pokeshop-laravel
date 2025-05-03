@@ -12,7 +12,10 @@ class Carta extends Model
     use HasFactory;
     
     protected $table = 'carta'; // Opcional
+
+    public $timestamps = false;
+
     
     // Atributos a rellenar (todos menos id)
-    protected $fillable = ['Nombre', 'Tipo', 'PS', 'Ataque', 'Precio', 'Imagen', 'ID_Usuario', 'en_venta'];
+    protected $fillable = ['Nombre', 'Tipo', 'PS', 'Ataque', 'Precio', 'Imagen', 'ID_Usuario', 'en_venta', 'Descripcion'];
 }

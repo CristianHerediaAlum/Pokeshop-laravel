@@ -1,0 +1,91 @@
+.mensaje-container {
+    text-align: center;
+    margin: 20px auto;
+    width: 80%;
+}
+
+.exito {
+    color: green;
+    background-color: #d4edda;
+    padding: 10px;
+    border: 2px solid green;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.error {
+    color: red;
+    background-color: #f8d7da;
+    padding: 10px;
+    border: 2px solid red;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    padding: 20px;
+}
+
+.form-box {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 700px;
+    padding: 30px;
+    text-align: left;
+    border: 2px solid #e60012;
+}
+
+.form-box h2 {
+    color: #e60012;
+    margin-bottom: 20px;
+}
+
+.form-box label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.form-box input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.form-box button {
+    width: 100%;
+    padding: 10px;
+    background-color: #e60012;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.form-box button:hover {
+    background-color: #b5000b;
+}
+
+.form-box p {
+    color: #e60012;
+    text-decoration: none;
+    font-size: 14px;
+    margin-top: 10px;
+    display: block;
+    text-align: center;
+}
