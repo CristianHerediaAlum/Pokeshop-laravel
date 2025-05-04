@@ -77,3 +77,86 @@ button:hover {
     background-color:rgb(144, 7, 18); /* Un rojo más oscuro */
     transform: scale(1.05); /* Efecto sutil de agrandado */
 }
+
+/* Estilos para buscador */
+
+.buscador_filtros {
+    background-color: #f7f7f7;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.filtros_extra {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    align-items: center;
+}
+
+.filtros_extra label {
+    font-weight: bold;
+    color: #333;
+}
+
+.buscador_input {
+    width: 100%;
+    padding: 0.6rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #ccc;
+}
+
+/* Estilo para el control deslizante */
+input[type="range"] {
+    -webkit-appearance: none; /* Elimina el estilo predeterminado */
+    width: 100%; /* Ancho completo */
+    height: 8px; /* Altura de la barra */
+    background: #d92c2c; /* Color rojo para la barra */
+    border-radius: 5px; /* Bordes redondeados */
+    outline: none; /* Elimina el borde al hacer clic */
+    opacity: 0.9; /* Transparencia */
+    transition: background 0.3s;
+}
+
+/* Cambia el color al pasar el mouse */
+input[type="range"]:hover {
+    background: #a00000; /* Rojo más oscuro */
+}
+
+/* Estilo para el control deslizante (thumb) */
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Elimina el estilo predeterminado */
+    appearance: none;
+    width: 20px; /* Ancho del thumb */
+    height: 20px; /* Altura del thumb */
+    background: #ffffff; /* Color blanco para el thumb */
+    border: 2px solid #d92c2c; /* Borde rojo */
+    border-radius: 50%; /* Forma circular */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
+    transition: background 0.3s, transform 0.2s;
+}
+
+/* Cambia el color del thumb al pasar el mouse */
+input[type="range"]::-webkit-slider-thumb:hover {
+    background: #d92c2c; /* Rojo */
+    transform: scale(1.2); /* Efecto de agrandado */
+}
+
+/* Estilo para navegadores que no usan Webkit */
+input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #ffffff;
+    border: 2px solid #d92c2c;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+input[type="range"]::-moz-range-thumb:hover {
+    background: #d92c2c;
+    transform: scale(1.2);
+}

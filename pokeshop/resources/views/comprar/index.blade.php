@@ -15,7 +15,8 @@
     <h1>¡Aquí puedes comprar cartas!</h1>
     <form method="POST" action="{{ route('comprar.agregar') }}">
         @csrf
-        <div class="contenedor_ventas_cartas">
+        @livewire('buscador-cartas')
+        {{-- <div class="contenedor_ventas_cartas">
             @foreach ($cartas as $carta)
                 <article class="carta_pokemon" onclick="seleccionarCarta(this, {{ $carta->ID_Carta }});">
                     <h2>{{ $carta->Nombre }}</h2>
@@ -27,7 +28,7 @@
                     <input type="checkbox" name="cartas_seleccionadas[]" value="{{ $carta->ID_Carta }}" hidden>
                 </article>
             @endforeach
-        </div>
+        </div> --}}
         <button type="submit" class="boton_comprar">Meter en carrito</button>
     </form>
 @endsection
