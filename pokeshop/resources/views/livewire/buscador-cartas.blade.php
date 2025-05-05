@@ -38,6 +38,15 @@
                 <input type="range" wire:model.live="psMin" min="0" max="500">
                 <input type="range" wire:model.live="psMax" min="0" max="500">
             </div>
+            <div>
+                <label>Tipo:</label>
+                <select wire:model.live="tipo">
+                    <option value="">Todos</option>
+                    @foreach($tipos as $t)
+                        <option value="{{ $t }}">{{ $t }}</option>
+                    @endforeach
+                </select>
+            </div>
         </div>
     </div>
 

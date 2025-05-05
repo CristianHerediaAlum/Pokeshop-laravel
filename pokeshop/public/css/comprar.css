@@ -160,3 +160,36 @@ input[type="range"]::-moz-range-thumb:hover {
     background: #d92c2c;
     transform: scale(1.2);
 }
+
+/* Estilo para el contenedor del selector */
+.buscador_filtros select {
+    width: 100%; /* Ocupa todo el ancho disponible */
+    padding: 0.6rem; /* Espaciado interno */
+    font-size: 1rem; /* Tamaño de fuente */
+    border: 2px solid #d92c2c; /* Borde rojo */
+    border-radius: 0.5rem; /* Bordes redondeados */
+    background-color: #fff; /* Fondo blanco */
+    color: #333; /* Texto oscuro */
+    outline: none; /* Elimina el borde azul al hacer clic */
+    transition: border-color 0.3s, box-shadow 0.3s; /* Transiciones suaves */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
+}
+
+/* Cambia el color del borde al pasar el mouse */
+.buscador_filtros select:hover {
+    border-color: #a00000; /* Rojo más oscuro */
+    box-shadow: 0 0 5px rgba(217, 44, 44, 0.5); /* Sombra roja */
+}
+
+/* Cambia el color del borde al hacer clic */
+.buscador_filtros select:focus {
+    border-color: #a00000; /* Rojo más oscuro */
+    box-shadow: 0 0 8px rgba(217, 44, 44, 0.8); /* Sombra más intensa */
+}
+
+/* Estilo para las opciones del selector */
+.buscador_filtros select option {
+    background-color: #fff; /* Fondo blanco */
+    color: #333; /* Texto oscuro */
+    padding: 0.5rem; /* Espaciado interno */
+}
