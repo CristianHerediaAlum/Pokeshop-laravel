@@ -5,7 +5,7 @@
     <a href="{{ url('/') }}">🏠 Inicio</a>
     <a href="{{ route('comprar.index') }}">🛒 Comprar</a>
     <a href="vender.php">📦 Vender</a>
-    <a href="carrito.php">🛍️ Carrito</a>
+    <a href="{{ route('carrito.index') }}">🛍️ Carrito</a>
     <a href="{{ route('coleccion.index') }}">🎴 Mi Colección</a>
     <a href="perfil.php">👤 Perfil</a>
     <a href="cerrar_sesion.php" class="logout-btn">
