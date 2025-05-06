@@ -10,12 +10,14 @@ class ComprarController extends Controller
     public function index(Request $request)
     {
         // Simula el ID del usuario (esto debería venir de la autenticación)
-        $idUsuario = $request->user()->id ?? 1;
+        $idUsuario = session('ID_Usuario');
+
 
         // Obtén las cartas en venta que no pertenecen al usuario
         $cartas = Carta::where('ID_Usuario', '!=', $idUsuario)
             ->where('en_venta', 1)
             ->get();
+        // $cartas = Carta::where('ID_Usuario', '=', $idUsuario)->get();
 
         // Filtra las cartas que no están en el carrito
         $carrito = session('Carrito', []);

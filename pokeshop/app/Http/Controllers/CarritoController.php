@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Carta;
+use App\Models\Usuario;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -42,7 +43,7 @@ class CarritoController extends Controller
         // Actualiza el saldo de los vendedores
         $cartas = Carta::whereIn('ID_Carta', $carrito)->get();
         foreach ($cartas as $carta) {
-            Carta::where('ID_Usuario', $carta->ID_Usuario)->increment('Saldo', $carta->Precio);
+            Usuario::where('ID_Usuario', $carta->ID_Usuario)->increment('Saldo', $carta->Precio);
         }
 
         // Actualiza las cartas para asignarlas al usuario actual
@@ -53,7 +54,7 @@ class CarritoController extends Controller
         ]);
 
         // Actualiza el saldo del usuario actual
-        Carta::where('ID_Usuario', $usuarioId)->decrement('Saldo', $total);
+        Usuario::where('ID_Usuario', $usuarioId)->decrement('Saldo', $total);
         session(['Saldo' => $saldo - $total]);
 
         // Limpia el carrito

@@ -3,11 +3,26 @@
 
 @section('title', 'Carrito')
 
+@push('styles')
+    <link rel="stylesheet" href="{{ asset('css/carrito.css') }}">
+@endpush
+
 @section('content')
     @if (session('error'))
-        <div class="alert alert-danger">
+        {{-- <div class="alert alert-danger">
             {{ session('error') }}
-        </div>
+        </div> --}}
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                Swal.fire({
+                    icon: 'error',
+                    title: '¡Error!',
+                    text: '{{ session('error') }}',
+                    confirmButtonColor: '#d33',
+                    confirmButtonText: 'Aceptar'
+                });
+            });
+        </script>
     @endif
 
     @if(session('compra_realizada'))

@@ -22,7 +22,7 @@ class BuscadorCartas extends Component
 
     public function render()
     {
-        $usuarioId = Auth::id() ?? 1;
+        $usuarioId = session('ID_Usuario');
         $carrito = session('Carrito', []);
 
 
