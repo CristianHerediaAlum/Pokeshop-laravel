@@ -57,5 +57,45 @@ class ColeccionController extends Controller
     
         return redirect()->route('coleccion.index')->with('mensaje', 'Carta añadida con éxito.');
     }
+
+    public function editar($id)
+    {
+        $carta = Carta::findOrFail($id);
+        return view('coleccion.editar', compact('carta'));
+    }
+
+    public function actualizar(Request $request, $id)
+    {
+        $request->validate([
+            'nombre' => 'required|string|max:255',
+            'tipo' => 'required|string|max:255',
+            'PS' => 'required|integer|min:0',
+            'ataque' => 'required|integer|min:0',
+            'precio' => 'required|numeric|min:0',
+            'desc' => 'nullable|string',
+            'imagen' => 'nullable|image|max:2048',
+        ]);
+
+        $carta = Carta::findOrFail($id);
+
+        $carta->Nombre = $request->nombre;
+        $carta->Tipo = $request->tipo;
+        $carta->PS = $request->PS;
+        $carta->Ataque = $request->ataque;
+        $carta->Precio = $request->precio;
+        $carta->Descripcion = $request->desc;
+
+        if ($request->hasFile('imagen')) {
+            $imagen = $request->file('imagen');
+            $nombreImagen = time() . '_' . $imagen->getClientOriginalName();
+            $imagen->move(public_path('imgs'), $nombreImagen);
+            $carta->Imagen = 'imgs/' . $nombreImagen;
+        }
+
+        $carta->save();
+
+        return redirect()->route('coleccion.index')->with('mensaje', 'Carta actualizada con éxito.');
+    }
     
 }
+

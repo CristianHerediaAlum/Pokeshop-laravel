@@ -14,3 +14,7 @@ Route::post('/comprar', [ComprarController::class, 'agregarAlCarrito'])->name('c
 Route::get('/coleccion', [ColeccionController::class, 'index'])->name('coleccion.index');
 Route::get('/coleccion/crear', [ColeccionController::class, 'crear'])->name('coleccion.crear');
 Route::post('/coleccion/anadir', [ColeccionController::class, 'anadir'])->name('coleccion.anadir');
+// Mostrar formulario de edición
+Route::get('/coleccion/editar/{id}', [ColeccionController::class, 'editar'])->name('coleccion.editar');
+// Guardar los cambios
+Route::post('/coleccion/actualizar/{id}', [ColeccionController::class, 'actualizar'])->name('coleccion.actualizar');
