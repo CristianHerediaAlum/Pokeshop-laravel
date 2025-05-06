@@ -2,10 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
+
 use App\Http\Controllers\ComprarController;
 use App\Http\Controllers\CarritoController;
 use App\Http\Controllers\ColeccionController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\VenderController;
+
 use Illuminate\Support\Facades\DB;
 
 // Ruta raíz que redirige a login o a la vista correspondiente según el tipo de usuario
@@ -36,10 +39,14 @@ Route::get('/coleccion/editar/{id}', [ColeccionController::class, 'editar'])->na
 // Guardar los cambios
 Route::post('/coleccion/actualizar/{id}', [ColeccionController::class, 'actualizar'])->name('coleccion.actualizar');
 
-//Rutas de carrito
+// Rutas de carrito
 Route::get('/carrito', [CarritoController::class, 'index'])->name('carrito.index');
 Route::post('/carrito/comprar', [CarritoController::class, 'comprar'])->name('carrito.comprar');
 Route::post('/carrito/eliminar', [CarritoController::class, 'eliminar'])->name('carrito.eliminar');
+
+// Rutas de ventas
+Route::get('/vender', [VenderController::class, 'index'])->name('vender.index');
+Route::post('/vender/toggle', [VenderController::class, 'toggleVenta'])->name('vender.toggle');
 
 // Rutas de autenticación
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');

@@ -4,7 +4,7 @@
     <p>PokeShop</p>
     <a href="{{ url('/') }}">🏠 Inicio</a>
     <a href="{{ route('comprar.index') }}">🛒 Comprar</a>
-    <a href="vender.php">📦 Vender</a>
+    <a href="{{ route('vender.index')  }}">📦 Vender</a>
     <a href="{{ route('carrito.index') }}">🛍️ Carrito</a>
     <a href="{{ route('coleccion.index') }}">🎴 Mi Colección</a>
     <a href="perfil.php">👤 Perfil</a>
