@@ -10,8 +10,8 @@ class BuscadorCartas extends Component
 {
     public $busqueda = '';
     public $precioMin = 0, $precioMax = 1000;
-    public $ataqueMin = 0, $ataqueMax = 500;
-    public $psMin = 0, $psMax = 500;
+    public $ataqueMin = 0, $ataqueMax = 1000;
+    public $psMin = 0, $psMax = 1000;
     public $tipo = '';
     public $tipos = []; // Se cargan dinámicamente
 

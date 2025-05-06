@@ -29,14 +29,14 @@
 
             <div>
                 <label>Ataque entre {{ $ataqueMin }} y {{ $ataqueMax }}</label>
-                <input type="range" wire:model.live="ataqueMin" min="0" max="500">
-                <input type="range" wire:model.live="ataqueMax" min="0" max="500">
+                <input type="range" wire:model.live="ataqueMin" min="0" max="1000">
+                <input type="range" wire:model.live="ataqueMax" min="0" max="1000">
             </div>
 
             <div>
                 <label>PS entre {{ $psMin }} y {{ $psMax }}</label>
-                <input type="range" wire:model.live="psMin" min="0" max="500">
-                <input type="range" wire:model.live="psMax" min="0" max="500">
+                <input type="range" wire:model.live="psMin" min="0" max="1000">
+                <input type="range" wire:model.live="psMax" min="0" max="1000">
             </div>
             <div>
                 <label>Tipo:</label>
