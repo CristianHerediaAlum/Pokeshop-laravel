@@ -1,5 +1,5 @@
 body {
-    background-image: url('../imgs/fondo2.jpg'); /* Ruta de la imagen */
+    background-image: linear-gradient(rgba(48, 45, 45, 0.4), rgba(48, 45, 45, 0.4)), url('../imgs/fondo-optimizado.webp');
     background-size: cover; /* Ajusta la imagen al tamaño de la pantalla */
     background-position: center; /* Centra la imagen */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
@@ -10,6 +10,7 @@ body {
     background-color: white;
     text-align: center;
 }
+
 
 /* Estilos nav */
 
