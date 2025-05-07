@@ -10,7 +10,7 @@ class ColeccionController extends Controller
     public function index(Request $request)
     {
         // Simula el ID del usuario (esto debería venir de la autenticación)
-        $idUsuario = $request->user()->id ?? 1;
+        $idUsuario = session('ID_Usuario'); // Obtén el ID del usuario desde la sesión
 
         // Obtén las cartas en venta que no pertenecen al usuario
         $mis_cartas = Carta::where('ID_Usuario', '=', $idUsuario)
@@ -35,7 +35,7 @@ class ColeccionController extends Controller
             'imagen' => 'required|image|max:2048',
         ]);
     
-        $idUsuario = $request->user()->id ?? 1;
+        $idUsuario = session('ID_Usuario'); // Obtén el ID del usuario desde la sesión
     
         // Guardar imagen en public/imgs
         $imagen = $request->file('imagen');
