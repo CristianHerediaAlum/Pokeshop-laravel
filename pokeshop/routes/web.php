@@ -9,6 +9,7 @@ use App\Http\Controllers\ColeccionController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\VenderController;
 use App\Http\Controllers\PerfilController;
+use App\Http\Controllers\PerfilAdminController;
 
 // Ruta raíz que redirige a login o a la vista correspondiente según el tipo de usuario
 Route::get('/', function () {
@@ -58,7 +59,7 @@ Route::get('/logout', function () {
     return redirect()->route('login');
 })->name('logout');
 
-//Rutas de perfil
+//Rutas de perfil USUARIO
 Route::get('/perfil', [PerfilController::class, 'index'])->name('perfil.index');
 // Editar nombre, apellidos, correo, nickname
 Route::get('/perfil/editar', [PerfilController::class, 'editar'])->name('perfil.editar-perfil');
@@ -73,3 +74,14 @@ Route::post('/perfil/confirmar-saldo', [PerfilController::class, 'confirmarSaldo
 // Cambiar contraseña
 Route::get('/perfil/cambiar-contrasena', [PerfilController::class, 'cambiarContrasena'])->name('perfil.cambiar-contrasena');
 Route::post('/perfil/confirmar-contrasena', [PerfilController::class, 'confirmarContrasena'])->name('perfil.confirmar-contrasena');
+
+
+//Rutas de perfil ADMINISTRADOR
+Route::get('/perfil-admin', [PerfilAdminController::class, 'index'])->name('perfil-admin.index');
+// Editar nombre, apellidos, correo, nickname
+Route::get('/perfil-admin/editar', [PerfilAdminController::class, 'editar'])->name('perfil-admin.editar-perfil');
+Route::post('/perfil-admin/editar-dato', [PerfilAdminController::class, 'editarDato'])->name('perfil-admin.editar-dato');
+
+// Cambiar contraseña
+Route::get('/perfil-admin/cambiar-contrasena', [PerfilAdminController::class, 'cambiarContrasena'])->name('perfil-admin.cambiar-contrasena');
+Route::post('/perfil-admin/confirmar-contrasena', [PerfilAdminController::class, 'confirmarContrasena'])->name('perfil-admin.confirmar-contrasena');
