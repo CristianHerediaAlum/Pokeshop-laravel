@@ -8,8 +8,7 @@ use App\Http\Controllers\CarritoController;
 use App\Http\Controllers\ColeccionController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\VenderController;
-
-use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\PerfilController;
 
 // Ruta raíz que redirige a login o a la vista correspondiente según el tipo de usuario
 Route::get('/', function () {
@@ -58,3 +57,19 @@ Route::get('/logout', function () {
     Session::flush(); // Elimina toda la sesión
     return redirect()->route('login');
 })->name('logout');
+
+//Rutas de perfil
+Route::get('/perfil', [PerfilController::class, 'index'])->name('perfil.index');
+// Editar nombre, apellidos, correo, nickname
+Route::get('/perfil/editar', [PerfilController::class, 'editar'])->name('perfil.editar-perfil');
+Route::post('/perfil/editar-dato', [PerfilController::class, 'editarDato'])->name('perfil.editar-dato');
+
+
+// Ingresar saldo
+Route::get('/perfil/ingresar-saldo', [PerfilController::class, 'ingresarSaldo'])->name('perfil.ingresar-saldo');
+Route::post('/perfil/confirmar-saldo', [PerfilController::class, 'confirmarSaldo'])->name('perfil.confirmar-saldo');
+
+
+// Cambiar contraseña
+Route::get('/perfil/cambiar-contrasena', [PerfilController::class, 'cambiarContrasena'])->name('perfil.cambiar-contrasena');
+Route::post('/perfil/confirmar-contrasena', [PerfilController::class, 'confirmarContrasena'])->name('perfil.confirmar-contrasena');
