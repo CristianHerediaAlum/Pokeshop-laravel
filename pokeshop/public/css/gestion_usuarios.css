@@ -1,0 +1,99 @@
+h1 {
+    color: rgb(255, 255, 255);
+    margin-top: 50px;
+    text-shadow: 3px 3px 5px #e60012; /* Sombra roja */
+}
+
+.contenedor_usuarios {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
+.carta_usuario {
+    position: relative;
+    background: #ffffff;
+    border: 3px solid #d92c2c;
+    border-radius: 12px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+    margin: 18px;
+    padding: 15px;
+    text-align: center;
+    width: 90%;
+    max-width: 1500px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease-in-out;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+.carta_usuario:hover {
+    transform: scale(1.05);
+    box-shadow: 6px 6px 12px rgba(217, 44, 44, 0.5);
+}
+.carta_usuario p {
+    font-size: 14px;
+    color: #333;
+    font-weight: bold;
+    white-space: normal;
+    overflow: visible;
+    text-align: center;
+    word-break: break-word;
+    max-width: 100%;
+}
+
+.contenedor_botones {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    display: flex;
+    gap: 2px;
+    z-index: 10; /* Asegúrate de que el contenedor esté encima de otros elementos */
+}
+
+.eliminar_usuario, .editar {
+    position: relative;
+    background-color: transparent; /* Sin fondo */
+    color: inherit; /* Mantener el color heredado */
+    border: none; /* Eliminar borde */
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 50%; /* Circular */
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0; /* Eliminar cualquier padding */
+    box-sizing: border-box;
+    transition: background 0.3s ease;
+    z-index: 11;
+}
+
+.editar i {
+    background-color: blue;
+    border-radius: 50%; /* Hace circular el ícono */
+    width: 100%; /* Asegura que el ícono ocupe el 100% del botón */
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background-color: rgb(74, 74, 239);
+}
+
+.eliminar_usuario{
+    color: white;
+    background-color: rgb(219, 57, 71);
+}
+
+.editar i:hover {
+    background-color: darkblue;
+}
+
+.eliminar_usuario:hover {
+    background-color: darkred;
+}

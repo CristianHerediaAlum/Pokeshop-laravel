@@ -11,6 +11,7 @@ use App\Http\Controllers\VenderController;
 use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\PerfilAdminController;
 use App\Http\Controllers\CartaController;
+use App\Http\Controllers\UsuarioController;
 
 // Ruta raíz que redirige a login o a la vista correspondiente según el tipo de usuario
 Route::get('/', function () {
@@ -97,3 +98,23 @@ Route::post('/guardar-cambios-en-cartas', [CartaController::class, 'guardarCambi
 
 // Ruta para eliminar una carta
 Route::post('/eliminar-carta', [CartaController::class, 'eliminar'])->name('gestion-cartas.eliminar');
+
+
+//Gestion de usuarios
+Route::get('/gestion-usuarios', [UsuarioController::class, 'index'])->name('gestion-usuarios.index');
+Route::post('/gestion-usuarios/eliminar', [UsuarioController::class, 'eliminar'])->name('usuarios.eliminar');
+Route::post('/gestion-usuarios/editar', [UsuarioController::class, 'editar'])->name('gestion-usuarios.editar');
+Route::get('/editar-usuario', function () {
+    $id = session('editar-usuarios');
+
+    if (!$id) {
+        return redirect()->route('gestion-usuarios');
+    }
+
+    $usuario = DB::table('usuario')->where('ID_Usuario', $id)->first();
+
+    return view('gestion-usuarios.editar', compact('usuario'));
+})->name('editar.usuario');
+Route::post('/guardar-cambios', [UsuarioController::class, 'guardarCambios'])->name('guardar-cambios');
+
+

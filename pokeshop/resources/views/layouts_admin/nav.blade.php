@@ -4,7 +4,7 @@
     <p>PokeShop</p>
     <a href="{{ url('/') }}">🏠 Inicio</a>
     <a href="{{ route('gestion-cartas.index') }}">📝 Gestión de cartas</a> <!-- Aprobar/rechazar cartas en venta, editar o eliminar listados. -->
-    <a href="gestion-usuarios.php"> 🛠️ Gestión de Usuarios</a> <!-- Agregar, editar, suspender o eliminar usuarios. -->
+    <a href="{{ route('gestion-usuarios.index') }}"> 🛠️ Gestión de Usuarios</a> <!-- Agregar, editar, suspender o eliminar usuarios. -->
     <a href="{{ route('perfil-admin.index') }}">👤 Perfil</a>
     <a href="{{ route('logout') }}" class="logout-btn">
         <i class="fas fa-sign-out-alt"></i>
