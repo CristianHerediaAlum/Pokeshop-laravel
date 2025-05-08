@@ -12,6 +12,7 @@ h1 {
     gap:20px;
 }
 .carta_pokemon {
+    position: relative;
     background: #ffffff; /* Fondo blanco */
     border: 3px solid #d92c2c; /* Borde rojo */
     border-radius: 12px;
@@ -96,4 +97,22 @@ h1 {
 .boton_anadir:hover {
     background-color:rgb(144, 7, 18); /* Un rojo más oscuro */
     transform: scale(1.05); /* Efecto sutil de agrandado */
+}
+
+.boton_editar {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: #d92c2c;
+    cursor: pointer;
+    z-index: 2;
+    text-decoration: none;
+}
+
+.boton_editar:hover {
+    color: #a00;
+    transform: scale(1.2);
 }
