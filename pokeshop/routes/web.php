@@ -10,6 +10,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\VenderController;
 use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\PerfilAdminController;
+use App\Http\Controllers\CartaController;
 
 // Ruta raíz que redirige a login o a la vista correspondiente según el tipo de usuario
 Route::get('/', function () {
@@ -85,3 +86,14 @@ Route::post('/perfil-admin/editar-dato', [PerfilAdminController::class, 'editarD
 // Cambiar contraseña
 Route::get('/perfil-admin/cambiar-contrasena', [PerfilAdminController::class, 'cambiarContrasena'])->name('perfil-admin.cambiar-contrasena');
 Route::post('/perfil-admin/confirmar-contrasena', [PerfilAdminController::class, 'confirmarContrasena'])->name('perfil-admin.confirmar-contrasena');
+
+
+//Gestion de cartas
+Route::get('/gestion-cartas', [CartaController::class, 'index'])->name('gestion-cartas.index');
+// Ruta para editar una carta
+Route::get('/editar-carta/{id}', [CartaController::class, 'editar'])->name('gestion-cartas.editar');
+// Ruta para guardar los cambios de una carta
+Route::post('/guardar-cambios-en-cartas', [CartaController::class, 'guardarCambios'])->name('guardar-cambios-en-cartas');
+
+// Ruta para eliminar una carta
+Route::post('/eliminar-carta', [CartaController::class, 'eliminar'])->name('gestion-cartas.eliminar');
