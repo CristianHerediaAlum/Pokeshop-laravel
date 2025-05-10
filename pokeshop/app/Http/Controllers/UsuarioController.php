@@ -39,6 +39,7 @@ class UsuarioController extends Controller
         $usuario->Correo = $request->correo;
         $usuario->Nickname = $request->nickname;
         $usuario->Saldo = $request->saldo;
+        $usuario->verified = $request->verified;
         $usuario->save();
 
         return redirect()->route('gestion-usuarios.index')->with('success', 'Cambios guardados correctamente.');

@@ -3,7 +3,7 @@
     <div class="footer-content">
         <p>&copy; 2025 - PokeShop</p>
         <div class="footer-contact">
-            <p>Contacto: pokeshop@gmail.com   |   Teléfono: +34 999 999 999</p>
+            <p>Contacto: pokeshop.poke@gmail.com   |   Teléfono: +34 999 999 999</p>
         </div>
         <div class="footer-links">
             <a href="https://www.pokemon.com/es/legal/condiciones-de-uso">Términos y Condiciones</a>

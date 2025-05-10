@@ -26,6 +26,10 @@
         <label for="saldo">Saldo</label>
         <input type="number" name="saldo" value="{{ $usuario->Saldo }}" required>
     </div>
+    <div class="input-group">
+        <label for="verified">Verificado</label>
+        <input type="number" name="verified" value="{{ $usuario->verified }}" required>
+    </div>
     <div class="form-actions">
         <button type="submit" class="guardar-btn">Guardar Cambios</button>
     </div>

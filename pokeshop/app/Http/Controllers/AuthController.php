@@ -26,6 +26,7 @@ class AuthController extends Controller
         $usuario = Usuario::where('Nickname', $nickname)->first();
 
         if ($usuario && password_verify($contrasena, $usuario->Contrasena)) {
+            //Si no esta verificado no puede iniciar sesion
             if ($usuario->verified == 0) {
                 return back()->with('error', 'Por favor, verifica tu cuenta antes de iniciar sesión.');
             }
@@ -97,7 +98,7 @@ class AuthController extends Controller
         // Enviar el correo de verificación
         Mail::to($usuario->Correo)->send(new VerificationMail($verificationCode));
 
-        return back()->with('success', 'Registro exitoso. Ya puedes iniciar sesión.');
+        return back()->with('success', 'Registro exitoso. Verifica tu cuenta e inicia sesión.');
     }
 
     public function verifyEmail($code)

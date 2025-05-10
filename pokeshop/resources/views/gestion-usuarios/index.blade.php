@@ -19,7 +19,8 @@
                 <strong>Apellidos:</strong> {{ $usuario->Apellidos }} |
                 <strong>Correo:</strong> {{ $usuario->Correo }} |
                 <strong>Nickname:</strong> {{ $usuario->Nickname }} |
-                <strong>Saldo:</strong> {{ $usuario->Saldo }}
+                <strong>Saldo:</strong> {{ $usuario->Saldo }} |
+                <strong>Verificado:</strong> {{ $usuario->verified }}
             </p>
 
             <div class="contenedor_botones">
