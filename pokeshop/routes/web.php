@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 
+use App\Models\Usuario;
+
+
 use App\Http\Controllers\ComprarController;
 use App\Http\Controllers\CarritoController;
 use App\Http\Controllers\ColeccionController;
@@ -108,10 +111,10 @@ Route::get('/editar-usuario', function () {
     $id = session('editar-usuarios');
 
     if (!$id) {
-        return redirect()->route('gestion-usuarios');
+        return redirect()->route('gestion-usuarios.index');
     }
 
-    $usuario = DB::table('usuario')->where('ID_Usuario', $id)->first();
+    $usuario = Usuario::where('ID_Usuario', $id)->first();
 
     return view('gestion-usuarios.editar', compact('usuario'));
 })->name('editar.usuario');
