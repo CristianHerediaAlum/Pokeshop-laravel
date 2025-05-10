@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 use App\Models\Usuario;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\VerificationMail;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller
@@ -22,6 +26,9 @@ class AuthController extends Controller
         $usuario = Usuario::where('Nickname', $nickname)->first();
 
         if ($usuario && password_verify($contrasena, $usuario->Contrasena)) {
+            if ($usuario->verified == 0) {
+                return back()->with('error', 'Por favor, verifica tu cuenta antes de iniciar sesión.');
+            }
             session([
                 'ID_Usuario' => $usuario->ID_Usuario,
                 'Nombre' => $usuario->Nombre,
@@ -71,14 +78,41 @@ class AuthController extends Controller
             'contrasena.regex' => 'La contraseña debe incluir al menos una mayúscula, una minúscula y un número.',
         ]);
 
-        Usuario::create([
+         $usuario = Usuario::create([
             'Nombre' => $request->nombre,
             'Apellidos' => $request->apellidos,
             'Correo' => $request->correo,
             'Nickname' => $request->nickname,
             'Contrasena' => Hash::make($request->contrasena),
+            'verified' => 0
         ]);
+
+        // Generar un código de verificación único
+        $verificationCode = Str::random(32);
+
+        // Guardar el código de verificación en la base de datos (nuevo campo)
+        $usuario->verification_code = $verificationCode;
+        $usuario->save();
+
+        // Enviar el correo de verificación
+        Mail::to($usuario->Correo)->send(new VerificationMail($verificationCode));
 
         return back()->with('success', 'Registro exitoso. Ya puedes iniciar sesión.');
     }
+
+    public function verifyEmail($code)
+    {
+        $usuario = Usuario::where('verification_code', $code)->first();
+
+        if ($usuario) {
+            $usuario->verified = 1; // Marcar como verificado
+            $usuario->verification_code = null; // Limpiar el código de verificación
+            $usuario->save();
+
+            return redirect('/login')->with('success', 'Cuenta verificada con éxito. Ya puedes iniciar sesión.');
+        } else {
+            return redirect('/login')->with('error', 'Código de verificación inválido o ya utilizado.');
+        }
+    }
+
 }

@@ -117,4 +117,7 @@ Route::get('/editar-usuario', function () {
 })->name('editar.usuario');
 Route::post('/guardar-cambios', [UsuarioController::class, 'guardarCambios'])->name('guardar-cambios');
 
+//Email de confirmacion
+Route::get('/verify/{code}', [AuthController::class, 'verifyEmail']);
+
 
